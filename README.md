@@ -29,7 +29,7 @@ How to deploy and configure
 * Import the **audio-detect-scriptr** project to Kinoma studio then run it from the IDE or from a Kinoma Create device. 
  * You can modify the SCRIPT_URL variable if needed in case you deployed the soundLevelManagement script in a folder that is not called "demo"
  * You can modify the SIGNIFICANT_LEVEL variable in order to increase/decrease the number of requests sent to scriptr.io
-* Import the **SoundOMeter2** projext to Kinoma studio then run it from the IDE or from a Kinoma Create device.
+* Import the **SoundOMeter2** project to Kinoma studio then run it from the IDE or from a Kinoma Create device.
  * Replace the value of the DEVICE_ID variable with a value of your owb
  * Replace the USER_ID variable with your wot.io user ID
  * Replace the TOKEN variable with your wot.io auth token
