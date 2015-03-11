@@ -14,22 +14,22 @@ var ACCEPTABLE = "1000";
 var TOO_HIGH = "2000";
 
 // wot.io connection config
-var WOTIO_USER = "largowinch687_yahoo_com"; // replace with your wot.io user
-var WOTIO_TOKEN = "01qKbveKfNGGSo0N"; // replace with your wot.io token
+var WOTIO_USER = "EXAMPLE_largowinch_yahoo_com"; // replace with your wot.io user
+var WOTIO_TOKEN = "EXAMPLE_02qKrveSfNGGSo0N"; // replace with your wot.io token
 var WOTIO_APP = "echo"; // keep it as is
 var DEVICE_ID = "soundOMeter"; // keep it as is or replace with another id
 
 // SendMail config
-var SEND_TO = "karim.saikali@apstrata.com";
+var SEND_TO = "joe@company.com";
 var SEND_FROM = "demo@scriptr.io";
 var SUBJECT = "The sound level is too high!";
 var BODY_HTML = "The sound level is too high! Please wear ear protection";
 
 // Twitter config. Replace with your own config
-var TWITTER_KEY = "Nx7ViUxQyys0W2TxP2m7m2SPa";
-var TWITTER_SECRET = "EhW964NmKxZKUYEVYhFQYvi1PbWbYB51EReP7mrtrscUV8WRh6";
-var TWITTER_TOKEN = "966106350-a2egwDTJOVPVrR29cm3fD17eWPUPjQUDhuxUyC4A";
-var TWITTER_TOKEN_SECRET = "kYL8vcUQvFyS2sIRWJkR18XikAZokK1xX5tQbFo5pVaGc"; 
+var TWITTER_KEY = "EXAMPLE_Nx6ViUxAyys8W2TyP2m7m2SPa";
+var TWITTER_SECRET = "EXAMPLE_EhX964YmKxKKUYEVPhFQYvi1PbWbYB51EReK7mrtrscUV8WRh5";
+var TWITTER_TOKEN = "EXAMPLE_965196300-a4egwOLJOVPVrR29cm3fD17eWPUPjQUDhuxUyC4A";
+var TWITTER_TOKEN_SECRET = "EXAMPLE_lYL9vcPQvXyS4sIRWJkR18XikAZokK1xX5tQbFo5pVaGc"; 
 var TWEET_TEXT = BODY_HTML;
 
 // Retrieve the sound level as sent by a Kinoma device with an audio sensor
