@@ -21,12 +21,12 @@ Components
 How to deploy and configure
 ===========================
 
-* Copy the scripts that are contained in the SoundOMeter2_backend project to your scriptr.io account. By default, the two scripts should be placed in a folder called "demo". Note that the "urlBuilderModule" script is a utility that facilitates the communication with wot.io. #Do not use the ".js" extension when naming your scripts on scriptr.io.
+* Copy the scripts that are contained in the **SoundOMeter2_backend** project to your scriptr.io account. By default, the two scripts should be placed in a folder called "demo". Note that the "urlBuilderModule" script is a utility that facilitates the communication with wot.io. #Do not use the ".js" extension when naming your scripts on scriptr.io.
  * You can modify the SCR
-* Import the audio-detect-scriptr project to Kinoma studio then run it from the IDE or from a Kinoma Create device. 
+* Import the **audio-detect-scriptr** project to Kinoma studio then run it from the IDE or from a Kinoma Create device. 
  * You can modify the SCRIPT_URL variable if needed in case you deployed the soundLevelManagement script in a folder that is not called "demo"
  * You can modify the SIGNIFICANT_LEVEL variable in order to increase/decrease the number of requests sent to scriptr.io
-* Import the SoundOMeter2 projext to Kinoma studio then run it from the IDE or from a Kinoma Create device.
+* Import the **SoundOMeter2** projext to Kinoma studio then run it from the IDE or from a Kinoma Create device.
  * Replace the value of the DEVICE_ID variable with a value of your owb
  * Replace the USER_ID variable with your wot.io user ID
  * Replace the TOKEN variable with your wot.io auth token
