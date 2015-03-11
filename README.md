@@ -34,6 +34,7 @@ the instruction it contains (in the default implementation, it displays a face -
  * If needed, you can play with the values of the ACCEPTABLE and TOO_HIGH variables in the "script behavior config" section to modify the sound level thresholds used by the script to determine what instruction to send.
 * Import the **audio-detect-scriptr** project to Kinoma studio then run it from the IDE or from a Kinoma Create device. 
  * You can modify the SCRIPT_URL variable if needed in case you deployed the soundLevelManagement script in a folder that is not called "demo"
+ * Replace the value of the TOKEN variable with either your scriptr.io token or your scriptr.io anonymous token. In the latter case, do not forget to authorize anonymous calls on the script.
  * You can modify the SIGNIFICANT_LEVEL variable in order to increase/decrease the number of requests sent to scriptr.io
 * Import the **SoundOMeter2** project to Kinoma studio then run it from the IDE or from a Kinoma Create device.
  * Replace the value of the DEVICE_ID variable with a value of your owb
