@@ -5,6 +5,7 @@ var SIGNIFICANT_LEVEL = 1000; // this is used to limit the number of requests se
 
 // scriptr.io parameters
 var SCRIPT_URL = "https://api.scriptr.io/demo/soundLevelManagement?apsws.responseType=json"; // The URL of the scriptr.io script
+var TOKEN = "EXAMPLE_RxM1KkYwCzc3Mg=="; // Replace with your scriptr auth token or anonymous token
 
 Handler.bind("/gotAudio", {
 	onInvoke: function(handler, message) {
@@ -46,7 +47,7 @@ Handler.bind("/gotAudio", {
 	        message.requestText =  "soundLevel=" + response.average;
 	        message.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	        message.setRequestHeader("Content-Length", message.requestText.length);
-	        message.setRequestHeader("Authorization", "bearer RzM1RkYwQzc4Mg==");
+	        message.setRequestHeader("Authorization", "bearer " + TOKEN);
 	        container.invoke(message, Message.TEXT);   
         }   
         
