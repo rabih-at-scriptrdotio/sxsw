@@ -125,8 +125,8 @@
            	
 			// wot.io configuration           
             var DEVICE_ID = "soundOMeter"; // The identifier of the current device. Hardcoded for simplicity
-            var USER_ID = "largowinch687_yahoo_com"; // The identifier of the user on wot.io
-            var TOKEN = "01qKbveKfNGGSo0N"; // The authentication token of the user on wot.io            
+            var USER_ID = "EXAMPLE_largowinch_yahoo_com"; // The identifier of the user on wot.io
+            var TOKEN = "EXAMPLE_02qAbveKgNGMSo0N"; // The authentication token of the user on wot.io            
             
             // General initialization
             var WotClient = require("wotClientModule.js");
