@@ -14,15 +14,18 @@ the instruction it contains (in the default implementation, it displays a face -
 Components
 ==========
 
-* audio-detect-scriptr: this is a Kinoma application project, based on the Kinoma [audio-detect](https://github.com/Kinoma/KPR-examples/tree/master/audio-detect) sample application. It represents the sound sensor that sends the values of the sound level to scriptr.io.
-* SoundOMeter2: this is a Kinoma application project. It is the application that receives the instructions sent by scriptr.io through the wot.io channel and executes them.
-* SoundOMeter2_backend: this is a scriptr.io project. Copy the two scripts that are contained in the project and deploy them to your scriptr.io account (you should normally deploy them in a folder called "demo").
+* **audio-detect-scriptr**: this is a Kinoma application project, based on the Kinoma [audio-detect](https://github.com/Kinoma/KPR-examples/tree/master/audio-detect) sample application. It represents the sound sensor that sends the values of the sound level to scriptr.io.
+* **SoundOMeter2**: this is a Kinoma application project. It is the application that receives the instructions sent by scriptr.io through the wot.io channel and executes them.
+* **SoundOMeter2_backend**: this is a scriptr.io project. Copy the two scripts that are contained in the project and deploy them to your scriptr.io account (you should normally deploy them in a folder called "demo").
 
 How to deploy and configure
 ===========================
 
-* Copy the scripts that are contained in the **SoundOMeter2_backend** project to your scriptr.io account. By default, the two scripts should be placed in a folder called "demo". Note that the "urlBuilderModule" script is a utility that facilitates the communication with wot.io. #Do not use the ".js" extension when naming your scripts on scriptr.io.
- * You can modify the SCR
+* Copy the scripts that are contained in the **SoundOMeter2_backend** project to your scriptr.io account. By default, the two scripts should be placed in a folder called "demo". Note that the "urlBuilderModule" script is a utility that facilitates the communication with wot.io. **Do not use the ".js" extension when naming your scripts on scriptr.io**.
+ * Replace the values of the WOTIO_USER and WOTIO_TOKEN variables in the "wot.io connection config" section with your wot.io user id and wot.io auth token respectively
+ * Replace the values of variables in the "SendMail config" section with values that match your needs
+ * Replace the values of the TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN and TWITTER_TOKEN_SECRET variables in the "Twitter config" section with the corresponding values that you obtained from Twitter for your app.
+ * If needed, you can play with the values of the ACCEPTABLE and TOO_HIGH variables in the "script behavior config" section to modify the sound level thresholds used by the script to determine what instruction to send.
 * Import the **audio-detect-scriptr** project to Kinoma studio then run it from the IDE or from a Kinoma Create device. 
  * You can modify the SCRIPT_URL variable if needed in case you deployed the soundLevelManagement script in a folder that is not called "demo"
  * You can modify the SIGNIFICANT_LEVEL variable in order to increase/decrease the number of requests sent to scriptr.io
@@ -35,19 +38,6 @@ How to deploy and configure
 How it works
 ============
 
-**Detection of sound level**
-
-* When the DoorControllerApp (hereafter referred to as "controller") is launched, it starts sharing itself on the 
-local network (so it can be discovered by a DoorControllerClientApp instance). It also triggers a call to Apstrata's GetDevice API (part of Device Management APIs) in order to retrieve data about the controller device, notably its type
-that it displays on the screen instead of the aforementioned generic title)
-* When the DoorControllerClientApp instance (hereafter referred to as "client") discovers the controller, it sends
-it a message ("/credentials" handler), providing it with a username (the user of the client device), an authentication
-token (identifying that user against Apstrata) and an instruction (open)
-* The controller uses the received token and username to sign a call to Apstrata's GetUser API and retrieve the user's
-profile (if token is valid). It displays a welcome message customized with the user's name obtained from the profile.
-
-**Detection of intrusion attempts**
-
-* onTouchBegan/onTouchEnded and onKeyDown events are consumed by specific handlers in the controller app. Once a
-given threashold (pre-configured in the app) is reached, the controller invokes Apstrata's RunScript API in order to 
-execute the "apstrata.kinoma.api.HandleIntrusionManagement" script, which triggers the instrusion management process.
+* First, launch the SoundOMeter2 application
+* Then, launch the audio-detect-scriptr application. Make some noise.
+* The face displayed on the screen of the device running the SoundOMeter2 application should switch from happy to neutral to sad depending on the noise you are making.
