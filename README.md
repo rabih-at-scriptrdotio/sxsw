@@ -1,4 +1,4 @@
-soundOMeterDemo
+##soundOMeterDemo
 =================
 This is a simple IoT demo application that implements a collaboration among two Kinoma devices, scriptr.io and wot.io.
 * A first Kinoma device runs an application that uses a sound sensor (e.g. the microphone) and sends the sound level
@@ -11,14 +11,14 @@ reads.
 * The second Kinoma device receives the messages that are sent by scriptr.io, from the wot.io channel and executes 
 the instruction it contains (in the default implementation, it displays a face - happy, neutral or sad - depending on the content of the message).
 
-Components
-==========
+###Components
+============
 
 * **audio-detect-scriptr**: this is a Kinoma application project, based on the Kinoma [audio-detect](https://github.com/Kinoma/KPR-examples/tree/master/audio-detect) sample application. It represents the sound sensor that sends the values of the sound level to scriptr.io.
 * **SoundOMeter2**: this is a Kinoma application project. It is the application that receives the instructions sent by scriptr.io through the wot.io channel and executes them.
 * **SoundOMeter2_backend**: this is a scriptr.io project. Copy the two scripts that are contained in the project and deploy them to your scriptr.io account (you should normally deploy them in a folder called "demo").
 
-How to deploy and configure
+###How to deploy and configure
 ===========================
 
 * Copy the scripts that are contained in the **SoundOMeter2_backend** project to your scriptr.io account. By default, the two scripts should be placed in a folder called "demo". Note that the "urlBuilderModule" script is a utility that facilitates the communication with wot.io. **Do not use the ".js" extension when naming your scripts on scriptr.io**.
@@ -35,7 +35,7 @@ How to deploy and configure
  * Replace the TOKEN variable with your wot.io auth token
 
 
-How it works
+###How it works
 ============
 
 * First, launch the SoundOMeter2 application
