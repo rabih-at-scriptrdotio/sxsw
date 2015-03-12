@@ -134,6 +134,5 @@ function push(url, headers, message) {
 function sendWarning() {
   
  	sendMail(SEND_TO, SEND_FROM, SUBJECT, BODY_HTML);
-	//var result = tweet(TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN, TWITTER_TOKEN_SECRET, "On " +  new Date() + " : " + TWEET_TEXT);
-  var result = tweet(TWEET_TEXT);
+	tweet(TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN, TWITTER_TOKEN_SECRET, "On " +  new Date() + " : " + TWEET_TEXT);
 }   				   				
