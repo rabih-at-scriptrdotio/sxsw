@@ -1,8 +1,4 @@
-/** Script ACLs do not delete 
- read=nobody 
-write=nobody
-execute=authenticated 
-  **/ 
+
 var http = require("http");
 var log = require("log");
 
