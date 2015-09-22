@@ -1,8 +1,8 @@
 ##SendNotifications
 
 This is a simple demo that combines a kinoma device, scriptr.io and a weather API.
-* On the Kinoma device, the end user is invited to selected one way to obtain weather information (tweet or email). The device issues a request towards scriptr.io passing the selected channel and the value of a hardcoded "location" parameter (new york by default, in the "requestText" property)
-* On the scriptr.io side, the provided script invokes the weather API asking for weather forecasts for the given location and sends the obtained information using the received channel.
+* On the Kinoma device, the end user is invited to select a notification channel to obtain weather information (tweet or email). The device issues requests towards scriptr.io passing the selected channel and the value of a hardcoded "location" parameter ("new york" by default, in the "requestText" property)
+* On the scriptr.io side, the provided script invokes the weather API asking for weather forecasts for the given location and sends the obtained information using the received channel. This script also keeps track of last requested location.
 
 ###Components
 
