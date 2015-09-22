@@ -1,9 +1,8 @@
-
 var http = require("http");
 var log = require("log");
 
 function getWeather(location) {
- return {temperature: 23, humidity: 70, main: "cloudy"};
+ 
   var weatherService = "http://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(location);
   var callResult = http.request({"url":weatherService});
 
@@ -39,10 +38,13 @@ function buildMessageContent(jsonContent) {
 }
 
 try {
-  //channel can be one of email, tweet, push
+  //channel can be one of email or tweet
   var channel = request.parameters.channel;
-
-  var location = storage.global.city;
+  var location = request.parameters.location; 
+  if (location) {
+    storage.global.city = location;
+  }
+  
   var weatherInfo = getWeather(location);
 
   if (!weatherInfo) {
@@ -60,19 +62,14 @@ try {
 
   switch(channel) {
     case "email":
-      sendMail("YOUR_EMAIL_HERE", "demo@scriptr.io", "Weather Info", message);
+      sendMail("YOUR_EMAIL", "demo@scriptr.io", "Weather Info", message);
       break;
     case "tweet":
-      var TWITTER_KEY = "";
+      var TWITTER_KEY = ""; // REPLACE WITH YOUR TWITTER APP CREDENTIALS
       var TWITTER_SECRET = "";
       var TWITTER_TOKEN = "";
       var TWITTER_TOKEN_SECRET = ""; 
       tweet(TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN, TWITTER_TOKEN_SECRET, message);
-      break;
-    case "push":
-      var gcmToken = storage.global.gcmToken;
-      message = '{"Content":' +  JSON.stringify(message) + '}';
-      push([gcmToken], message , "android"); 	
       break;
   }
 
