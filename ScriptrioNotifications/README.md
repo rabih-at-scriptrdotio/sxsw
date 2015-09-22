@@ -7,15 +7,15 @@ This is a simple demo that combines a kinoma device, scriptr.io and a weather AP
 ###Components
 
 * /: the project contains Kinoma application files (.module, .project, .application.xml) 
-* /src: contains the main.js file, implementing the UI interface and invocation of back-end logic
+* /src: contains the main.js file (part of the Kinoma app), implementing the UI interface and invocation of back-end logic
 * /server-side: contains the sendNotification.js file to be deployed on your scriptr.io account
 
 ###How to deploy and configure
 
-* Check-out the Kinoma scripts into a new project in Kinoma Studio (or copy/paste them in the project's structure)
-* Check-out (or copy/paste) the "sendNotification.js" file into your scriptr.io workbench (if you do copy/paste, kindly remove the .js extension)
+* Check-out the Kinoma scripts into a new project in Kinoma Studio (or copy/paste them into the project)
+* Check-out (or copy/paste) the "sendNotification.js" file into your scriptr.io workbench (if you choose to copy/paste, kindly remove the .js extension)
 * In (Kinoma project)/src/main.js, make sur to replace the TOKEN variable with your scriptr.io authentication token
-* In (scriptr.io)/sendNotificaiton, make sure to specify your email in the sendMail instruction, as well as specify your twitter app credentials if you intend to tweet
+* In (scriptr.io)/sendNotification, make sure to specify your email in the sendMail instruction, as well as specify your twitter app credentials if you intend to tweet
 
 ###How it works
 
