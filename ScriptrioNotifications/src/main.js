@@ -14,8 +14,8 @@
 */
 
 // scriptr.io parameters
-var SCRIPT_URL = "https://api.scriptr.io/sendNotification?apsws.responseType=json"; // The URL of the scriptr.io script  
-var TOKEN = "EXAMPLE_XDA1MUQ4RkNBRDpzY3JpcHRyOjExOTAxMTW93NjY1MDgxMTkyCSQ4N0IwMTA4RTMNMzBF"; // Replace with your scriptr.io auth token
+var SCRIPT_URL = "https://api.scriptr.io/sendNotifications"; // The URL of the scriptr.io script  
+var TOKEN = "YOUR_SCRIPTR.IO_AUTH_TOKEN"; // Replace with your scriptr.io auth token
 
 var THEME = require('themes/flat/theme');
 var BUTTONS = require('controls/buttons');
@@ -23,14 +23,13 @@ var BUTTONS = require('controls/buttons');
 var background = Container( {}, { left: 0, right: 0, top: 0, bottom: 0, skin: THEME.whiteSkin } );
 
 var myLabeledButton = BUTTONS.LabeledButton( { name : "Send" }, { 
-	width: 90, left: 50, top: 130, height: 30,
+	width: 90, left: 50, top: 160, height: 30,
 	behavior: BUTTONS.LabeledButtonBehavior({
 		onTap: function(button) {
-		
-			trace("Asking scriptr.io to send weather notificationt through " + myRadioGroup.behavior.data.selected + "\n");
 			
-			// Create a scriptr.io invocation handler using a Kinoma container
-	      	var container = new Container();
+			trace("Asking scriptr.io to send a notification through " +  myRadioGroup.behavior.data.selected);
+			
+			var container = new Container();
 		    var containerBehavior = new Behavior();
 		    containerBehavior.onComplete = function(container, message, data) {
 		     	trace("Response from scriptr.io " + data + "\n");
@@ -41,27 +40,28 @@ var myLabeledButton = BUTTONS.LabeledButton( { name : "Send" }, {
 	       	// Send the audio peaks to scriptr.io for processing using a Kinoma Message instance
 	        var message = new Message(SCRIPT_URL);
 	        message.method = "POST";
-	        message.requestText =  "channel=" + myRadioGroup.behavior.data.selected + "&apsws.time=" + new Date().getTime();
+	        message.requestText =  "channel=" + myRadioGroup.behavior.data.selected + "&location=new%20york";
 	        message.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	        message.setRequestHeader("Content-Length", message.requestText.length);
 	        message.setRequestHeader("Authorization", "bearer " + TOKEN);
-		    container.invoke(message, Message.TEXT);	        
+	        container.invoke(message, Message.TEXT); 			
 		}
 	})
 });
 
-var myRadioGroup = BUTTONS.RadioGroup( { buttonNames : "tweet,email,push", selected:"tweet"}, { 
-	top: 20, left: 20, width: 120,
+var myRadioGroup = BUTTONS.RadioGroup( { buttonNames : "tweet,email", selected : "tweet" }, { 
+	top: 50, left: 20, width: 120,
 	behavior: BUTTONS.RadioGroupBehavior({
 		onRadioGroupButtonSelected: function(group, buttonName) {
-			trace("Radio button named " + buttonName + " was selected \n");
-			myRadioGroup.behavior.data.selected = buttonName;
-		},
 		
+			myRadioGroup.behavior.data.selected = buttonName;
+			trace("You selected to send through " + buttonName  + "\n");
+		}
 	})
 });
 
 
 application.add( background );
-application.add( myRadioGroup );
+
 application.add( myLabeledButton );
+application.add( myRadioGroup );
